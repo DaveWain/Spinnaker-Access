@@ -2,7 +2,7 @@ import requests
 import json
 
 # Constants
-BASE_URL = "https://"
+BASE_URL = "https://" # Spinnaker API URL here
 HEADERS = {
     'Content-Type': 'application/json',
     'User-Agent': 'Mozilla/5.0'
