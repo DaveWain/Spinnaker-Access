@@ -12,7 +12,7 @@ HEADERS = {
 new_users = ["sample@email.com"]
 
 def get_session_cookie():
-    return ""
+    return "get_session_cookie"
 
 def get_pipeline(application, pipeline_name):
     url = f"{BASE_URL}/applications/{application}/pipelineConfigs/{pipeline_name}"
