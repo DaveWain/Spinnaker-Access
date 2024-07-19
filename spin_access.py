@@ -16,7 +16,7 @@ def get_session_cookie():
 
 def get_pipeline(application, pipeline_name):
     url = f"{BASE_URL}/applications/{application}/pipelineConfigs/{pipeline_name}"
-    response = requests.get(url, headers=HEADERS, cookies={'session': get_session_cookie()})
+    response = requests.get(url, headers=HEADERS, cookies={'SESSION': get_session_cookie()})
     if response.status_code == 200:
         return response.json()
     else:
@@ -25,7 +25,7 @@ def get_pipeline(application, pipeline_name):
 
 def update_pipeline(pipeline):
     url = f"{BASE_URL}/pipelines/{pipeline['id']}"
-    response = requests.put(url, headers=HEADERS, cookies={'session': get_session_cookie()}, data=json.dumps(pipeline))
+    response = requests.put(url, headers=HEADERS, cookies={'SESSION': get_session_cookie()}, data=json.dumps(pipeline))
     if response.status_code == 200:
         print(f"Successfully updated pipeline: {pipeline['name']}")
     else:
@@ -44,7 +44,7 @@ def process_applications(applications, keywords):
     for application in applications:
         print(f"Processing application: {application}")
         url = f"{BASE_URL}/applications/{application}/pipelineConfigs"
-        response = requests.get(url, headers=HEADERS, cookies={'session': get_session_cookie()})
+        response = requests.get(url, headers=HEADERS, cookies={'SESSION': get_session_cookie()})
         if response.status_code == 200:
             pipelines = response.json()
             for pipeline in pipelines:
